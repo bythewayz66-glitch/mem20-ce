@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mem20-ce — Core Edition</title>
+  <style>
+    :root { --bg: #0f1419; --fg: #e7ecf3; --accent: #3b82f6; --muted: #94a3b8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
+    main { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem; }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    .tag { color: var(--accent); font-weight: 600; letter-spacing: 0.02em; }
+    p.lead { font-size: 1.15rem; color: var(--muted); }
+    code, pre { background: #1e293b; border-radius: 6px; }
+    code { padding: 0.15em 0.4em; font-size: 0.9em; }
+    pre { padding: 1rem; overflow-x: auto; }
+    a { color: var(--accent); }
+    ul { padding-left: 1.2rem; }
+    footer { margin-top: 3rem; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="tag">mem20 Core Edition</p>
+    <h1>Memory that knows the difference between what happened and what was imagined.</h1>
+    <p class="lead">Grounded facts and simulated hypotheses never mix. Contamination rate on a clean store is 0.0. Index drift is reported, not hidden.</p>
+
+    <h2>Install</h2>
+    <pre><code>pip install mem20-ce</code></pre>
+
+    <h2>Quickstart</h2>
+    <pre><code>from mem20_ce import MemoryEngine
+
+engine = MemoryEngine()
+engine.remember("the deploy key rotates on the first Monday")
+engine.remember_simulated("perhaps it was already rotated")
+print(engine.recall("deploy key"))
+print(engine.contamination())  # contamination_rate: 0.0</code></pre>
+
+    <h2>Invariants</h2>
+    <ul>
+      <li>Simulated content never reaches grounded indexes</li>
+      <li><code>remember()</code> is grounded-only by default</li>
+      <li>Promotion requires evidence</li>
+      <li>Reads never write the ledger</li>
+      <li>Index drift is a first-class diagnostic</li>
+    </ul>
+
+    <p><a href="https://github.com/bythewayz66-glitch/mem20-ce">GitHub</a> · License: Apache-2.0</p>
+
+    <footer>
+      Extracted from the full <a href="https://github.com/bythewayz66-glitch/mem20">mem20</a> platform. Core Edition only.
+    </footer>
+  </main>
+</body>
+</html>
