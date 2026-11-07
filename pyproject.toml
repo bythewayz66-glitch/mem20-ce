@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mem20-ce"
-version = "0.1.0"
+version = "0.1.1"
 description = "mem20 Core Edition — trusted, auditable memory substrate for AI agents. Grounded facts and simulated hypotheses never mix."
 readme = "README.md"
 requires-python = ">=3.10"
