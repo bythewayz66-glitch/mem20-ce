@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mem20-ce"
+version = "0.1.0"
+description = "mem20 Core Edition — trusted, auditable memory substrate for AI agents. Grounded facts and simulated hypotheses never mix."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "mem20 contributors" }
+]
+keywords = ["agent", "memory", "mcp", "grounded", "audit", "contamination", "world-model"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "pytest-cov"]
+retrieval = []  # reserved for future vector extras
+
+[project.urls]
+Homepage = "https://github.com/bythewayz66-glitch/mem20-ce"
+Repository = "https://github.com/bythewayz66-glitch/mem20-ce"
+Documentation = "https://bythewayz66-glitch.github.io/mem20-ce/"
+
+[project.scripts]
+mem20-ce = "mem20_ce.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
